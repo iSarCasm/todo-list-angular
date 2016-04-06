@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  username: todo-list-angular
+  password: postgres
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: todo-list-angular_development
+
+test:
+  <<: *default
+  database: todo-list-angular_test
+
+production:
+  <<: *default
+  database: todo-list-angular_production
+  password: <%= ENV['TODO-LIST-ANGULAR_DATABASE_PASSWORD'] %>
